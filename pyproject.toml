@@ -1,0 +1,52 @@
+# https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
+# https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
+# https://python.astrotech.io/intermediate/modules/pyproject-toml.html
+# https://python-packaging-tutorial.readthedocs.io/en/latest/3_pyproject.html
+
+[build-system]
+# https://packaging.python.org/en/latest/guides/single-sourcing-package-version/
+# As of the release of setuptools 61.0.0,
+# one can specify the version dynamically in the project’s pyproject.toml file
+# https://www.seanh.cc/2022/05/21/publishing-python-packages-from-github-actions/#pyprojecttoml-and-setuptools_scm
+requires = ["setuptools >= 61", "setuptools_scm[toml]"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "package_name"
+dynamic = [ "version" ]
+
+authors = [
+    { name = "", email = "" }
+]
+
+description = ""
+readme  = { file = "README.md", content-type = "text/markdown" }
+license = { file = "LICENSE" }
+
+keywords = [ ]
+classifiers = [
+    # https://pypi.org/classifiers/
+    "Development Status :: 1 - Planning",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed"
+]
+
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+tests = []
+
+[tool.setuptools_scm]
+
+[project.urls]
+Homepage   = "https://pypi.org/project/[package_name]"
+Repository = "https://github.com/[github_username]/[package_name]"
